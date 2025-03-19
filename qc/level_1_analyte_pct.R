@@ -6,8 +6,9 @@ level_1_analyte_pct <- function(data,
   qc_dat <- data %>% 
     group_by({{sample_id}}, 
              {{sample_qc}}) %>% 
-    summarise(Percentage = 100*prop.table(n()),
-              .groups = 'drop') %>% 
+    tally() %>% 
+    mutate(Percentage = round(100*prop.table(n),
+                              digits = 2)) %>% 
     pivot_wider(names_from = {{sample_qc}}, 
                 values_from = Percentage, 
                 id_cols = {{sample_id}},
