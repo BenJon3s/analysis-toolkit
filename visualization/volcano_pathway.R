@@ -69,7 +69,7 @@ volcano_pathway <- function(volcano_dat,
                lty = 2,
                col = "black",
                lwd = 0.5) +
-    ggplot2::geom_label_repel(data = volcano_dat %>% 
+    ggrepel::geom_label_repel(data = volcano_dat %>% 
                        dplyr::filter(is.na({{pathway_var}})==F ),
                      ggplot2::aes(label = {{protein_var}},
                          color = {{pathway_var}}),
@@ -103,7 +103,7 @@ volcano_pathway <- function(volcano_dat,
                                       hjust = 0.5),
             legend.title = element_blank(),
             legend.text = element_text(size = 15),
-            axis.title.x =element_text(size = 18,
+            axis.title.x = element_text(size = 18,
                                        face = 'bold'),
             axis.title.y = element_text(size = 18, 
                                         face = 'bold'))
@@ -124,10 +124,8 @@ volcano_pathway <- function(volcano_dat,
                                   hjust = 0.5),
         legend.title = element_blank(),
         legend.text = element_text(size = 15),
-        axis.title.x =element_text(size = 18,
-                                   face = 'bold'),
-        axis.title.y = element_text(size = 18, 
-                                    face = 'bold'))
+        axis.title.x =element_text(size = 18),
+        axis.title.y = element_text(size = 18))
   }
   
   
