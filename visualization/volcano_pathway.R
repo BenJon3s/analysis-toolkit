@@ -79,10 +79,11 @@ volcano_pathway <- function(volcano_dat,
                      box.padding = 0.1,
                      show.legend = F)+
     ggplot2::labs(x = xlab,
-         y = ylab,
-         tag = paste0(nrow(volcano_dat %>% 
-                             dplyr::filter(!is.na({{pathway_var}}))),
-                      " Significant Proteins in Pathways"))+
+         y = ylab #,
+         #tag = paste0(nrow(volcano_dat %>% 
+                         #    dplyr::filter(!is.na({{pathway_var}}))),
+                     # " Proteins in Pathways")
+  )+
     ggplot2::ggtitle(title)+
     ggplot2::theme_classic()
   
